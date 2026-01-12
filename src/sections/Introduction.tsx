@@ -31,10 +31,6 @@ export default function Introduction() {
         });
     }, [wordIndex]);
 
-    useMotionValueEvent(scrollYProgress, "change", (latest) =>
-        console.log(latest)
-    );
-
     return (
         <section className="py-28 lg:py-40  ">
             <div className="container">
