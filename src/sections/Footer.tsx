@@ -1,6 +1,14 @@
 import Image from "next/image";
 import siteLogo from "@/assets/images/devdaa.png";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
+import {
+    Mail,
+    Phone,
+    MapPin,
+    Linkedin,
+    Twitter,
+    Github,
+    Instagram,
+} from "lucide-react";
 
 const footerLinks = [
     { href: "#", label: "Home" },
@@ -11,8 +19,16 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    {
+        icon: Linkedin,
+        href: "https://www.linkedin.com/company/devdaa/",
+        label: "LinkedIn",
+    },
+    {
+        icon: Instagram,
+        href: "https://www.instagram.com/devdotdaa",
+        label: "Instagram",
+    },
     { icon: Github, href: "#", label: "GitHub" },
 ];
 
