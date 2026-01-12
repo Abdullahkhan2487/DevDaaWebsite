@@ -14,7 +14,6 @@ import {
     SiKubernetes,
     SiMongodb,
     SiPostgresql,
-    SiMicrosoftazure,
     SiGooglecloud,
     SiZapier,
     SiTypescript,
@@ -77,7 +76,7 @@ const integrations = [
     },
     {
         name: "Azure",
-        icon: SiMicrosoftazure,
+
         description: "Microsoft's cloud computing service.",
     },
     {

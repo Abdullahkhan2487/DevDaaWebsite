@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import logo from "../assets/images/devdaa.png";
 const inter = Inter({
     variable: "--font-inter",
     subsets: ["latin"],
@@ -10,8 +10,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "Modern Design Tool Landing Page",
-    description: "Created with the help of Frontend Tribe",
+    title: "DevDaa - AI-Powered Development Solutions",
+    description:
+        "DevDaa specializes in AI, ML, and emerging technologies to deliver innovative software solutions that drive business growth.",
+    icons: {
+        icon: logo.src,
+        apple: logo.src,
+    },
 };
 
 export default function RootLayout({
