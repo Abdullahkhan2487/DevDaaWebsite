@@ -62,7 +62,16 @@ export default function Hero() {
                 { duration: 0.3, delay: 0.2 },
             ],
         ]);
-    }, []);
+    }, [
+        leftDesignAnimate,
+        leftDesignScope,
+        leftPointerAnimate,
+        leftPointerScope,
+        rightDesignAnimate,
+        rightDesignScope,
+        rightPointerAnimate,
+        rightPointerScope,
+    ]);
 
     return (
         <section

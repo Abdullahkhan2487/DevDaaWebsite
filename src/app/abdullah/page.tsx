@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
     Award,
     Briefcase,
@@ -171,6 +172,12 @@ const timeline = [
 ];
 
 export default function AbdullahPage() {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
     return (
         <main className="bg-neutral-950 text-white overflow-hidden relative">
             {/* ===== HERO SECTION ===== */}
@@ -207,81 +214,92 @@ export default function AbdullahPage() {
                 </motion.div>
 
                 {/* Floating icons with complex animations */}
-                {floatingIcons.map((item, index) => (
-                    <motion.div
-                        key={index}
-                        className="absolute hidden lg:block"
-                        initial={{
-                            x: Math.random() * window.innerWidth,
-                            y: -100,
-                            opacity: 0,
-                            scale: 0,
-                        }}
-                        animate={{
-                            y: [0, window.innerHeight + 100],
-                            x: Math.sin(index) * 200 + window.innerWidth / 2,
-                            opacity: [0, 0.7, 0],
-                            scale: [0, 1, 0],
-                            rotate: [0, 360],
-                        }}
-                        transition={{
-                            duration: 20 + Math.random() * 15,
-                            repeat: Infinity,
-                            delay: item.delay,
-                            ease: "linear",
-                        }}
-                    >
+                {isClient &&
+                    floatingIcons.map((item, index) => (
                         <motion.div
-                            animate={{
-                                scale: [1, 1.3, 1],
-                                filter: [
-                                    "drop-shadow(0 0 0px currentColor)",
-                                    "drop-shadow(0 0 20px currentColor)",
-                                    "drop-shadow(0 0 0px currentColor)",
-                                ],
-                            }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                            }}
-                        >
-                            <item.Icon className={`size-10 ${item.color}`} />
-                        </motion.div>
-                    </motion.div>
-                ))}
-
-                {/* Particle system */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    {Array.from({ length: 50 }).map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute rounded-full"
+                            key={index}
+                            className="absolute hidden lg:block"
                             initial={{
                                 x: Math.random() * window.innerWidth,
-                                y: Math.random() * window.innerHeight,
+                                y: -100,
                                 opacity: 0,
-                                width: Math.random() * 3 + 1,
-                                height: Math.random() * 3 + 1,
-                                backgroundColor: [
-                                    "rgb(34, 197, 94)",
-                                    "rgb(59, 130, 246)",
-                                    "rgb(168, 85, 247)",
-                                ][Math.floor(Math.random() * 3)],
+                                scale: 0,
                             }}
                             animate={{
-                                y: [0, -1500],
-                                x: [0, Math.sin(i) * 300, Math.cos(i) * 200],
-                                opacity: [0, 0.8, 0],
+                                y: [0, window.innerHeight + 100],
+                                x:
+                                    Math.sin(index) * 200 +
+                                    window.innerWidth / 2,
+                                opacity: [0, 0.7, 0],
+                                scale: [0, 1, 0],
+                                rotate: [0, 360],
                             }}
                             transition={{
-                                duration: 15 + Math.random() * 20,
+                                duration: 20 + Math.random() * 15,
                                 repeat: Infinity,
-                                delay: Math.random() * 5,
-                                ease: "easeOut",
+                                delay: item.delay,
+                                ease: "linear",
                             }}
-                        />
+                        >
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.3, 1],
+                                    filter: [
+                                        "drop-shadow(0 0 0px currentColor)",
+                                        "drop-shadow(0 0 20px currentColor)",
+                                        "drop-shadow(0 0 0px currentColor)",
+                                    ],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                }}
+                            >
+                                <item.Icon
+                                    className={`size-10 ${item.color}`}
+                                />
+                            </motion.div>
+                        </motion.div>
                     ))}
-                </div>
+
+                {/* Particle system */}
+                {isClient && (
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        {Array.from({ length: 50 }).map((_, i) => (
+                            <motion.div
+                                key={i}
+                                className="absolute rounded-full"
+                                initial={{
+                                    x: Math.random() * window.innerWidth,
+                                    y: Math.random() * window.innerHeight,
+                                    opacity: 0,
+                                    width: Math.random() * 3 + 1,
+                                    height: Math.random() * 3 + 1,
+                                    backgroundColor: [
+                                        "rgb(34, 197, 94)",
+                                        "rgb(59, 130, 246)",
+                                        "rgb(168, 85, 247)",
+                                    ][Math.floor(Math.random() * 3)],
+                                }}
+                                animate={{
+                                    y: [0, -1500],
+                                    x: [
+                                        0,
+                                        Math.sin(i) * 300,
+                                        Math.cos(i) * 200,
+                                    ],
+                                    opacity: [0, 0.8, 0],
+                                }}
+                                transition={{
+                                    duration: 15 + Math.random() * 20,
+                                    repeat: Infinity,
+                                    delay: Math.random() * 5,
+                                    ease: "easeOut",
+                                }}
+                            />
+                        ))}
+                    </div>
+                )}
 
                 {/* Main content */}
                 <div className="container relative z-10 max-w-5xl mx-auto">

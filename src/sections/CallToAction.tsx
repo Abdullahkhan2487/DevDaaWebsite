@@ -14,9 +14,9 @@ export default function CallToAction() {
         animation.current = animate(
             scope.current,
             { x: "-50%" },
-            { duration: 30, ease: "linear", repeat: Infinity }
+            { duration: 30, ease: "linear", repeat: Infinity },
         );
-    }, []);
+    }, [animate, scope]);
 
     useEffect(() => {
         if (animation.current) {
@@ -44,7 +44,7 @@ export default function CallToAction() {
                             </span>
                             <span
                                 className={twMerge(
-                                    slowDownAnimation && "text-teal-500"
+                                    slowDownAnimation && "text-teal-500",
                                 )}
                             >
                                 Dev-Driven. Data-Powered{" "}
