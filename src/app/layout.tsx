@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import logo from "../assets/images/devdaa.png";
+import BackgroundEffects from "@/components/BackgroundEffects";
+
 const inter = Inter({
     variable: "--font-inter",
     subsets: ["latin"],
@@ -27,9 +29,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${inter.variable} font-sans antialiased bg-neutral-950 text-white`}
+                className={`${inter.variable} font-sans antialiased bg-neutral-950 text-white relative`}
             >
-                {children}
+                <BackgroundEffects />
+                <div className="relative z-10">{children}</div>
             </body>
         </html>
     );

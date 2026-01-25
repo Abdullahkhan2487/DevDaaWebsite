@@ -15,10 +15,11 @@ export default function Home() {
             <Navbar />
             <Hero />
             {/* <LogoTicker /> uncomment this section jb logos add krny hon*/}
+            <CallToAction />
+
             <Introduction />
             <Features />
             <Integrations />
-            <CallToAction />
             <Faqs />
             <Contact />
             <Footer />

@@ -66,12 +66,12 @@ export default function Hero() {
 
     return (
         <section
-            className="py-24 overflow-x-clip"
+            className="py-24 overflow-hidden relative min-h-screen flex items-center"
             style={{
                 cursor: `url(${cursorImage.src}), auto`,
             }}
         >
-            <div className="container relative ">
+            <div className="container relative z-10">
                 <motion.div
                     ref={leftDesignScope}
                     initial={{ opacity: 0, y: 200, x: -100 }}
@@ -152,7 +152,7 @@ export default function Hero() {
                                         Phone
                                     </p>
                                     <p className="text-white text-sm">
-                                        +92 (333) 589-5359
+                                        +92 (340) 5744-852
                                     </p>
                                 </div>
                             </div>

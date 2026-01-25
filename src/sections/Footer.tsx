@@ -109,7 +109,7 @@ export default function Footer() {
                                     size={16}
                                     className="mt-0.5 flex-shrink-0"
                                 />
-                                <span>+92 (333) 589-5359</span>
+                                <span>+92 (340) 5744-852</span>
                             </a>
                             <div className="flex items-start gap-2 text-white/60 text-sm">
                                 <MapPin
