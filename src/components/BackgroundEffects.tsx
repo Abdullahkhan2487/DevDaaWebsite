@@ -1,177 +1,134 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { memo, useMemo } from "react";
 import {
     SiReact,
     SiPython,
     SiDocker,
-    SiKubernetes,
-    SiTensorflow,
     SiNodedotjs,
     SiTypescript,
-    SiAmazon,
 } from "react-icons/si";
+import { usePerformanceMode } from "@/hooks/usePerformanceMode";
 
-// Floating tech icons data
+// Floating tech icons data (reduced for performance)
 const floatingIcons = [
     { Icon: SiReact, color: "text-cyan-400", delay: 0 },
-    { Icon: SiPython, color: "text-yellow-400", delay: 0.5 },
-    { Icon: SiDocker, color: "text-blue-400", delay: 1 },
-    { Icon: SiKubernetes, color: "text-blue-500", delay: 1.5 },
-    { Icon: SiTensorflow, color: "text-orange-400", delay: 2 },
-    { Icon: SiNodedotjs, color: "text-green-400", delay: 2.5 },
-    { Icon: SiTypescript, color: "text-blue-400", delay: 3 },
-    { Icon: SiAmazon, color: "text-orange-500", delay: 3.5 },
+    { Icon: SiPython, color: "text-yellow-400", delay: 1 },
+    { Icon: SiDocker, color: "text-blue-400", delay: 2 },
+    { Icon: SiNodedotjs, color: "text-green-400", delay: 3 },
+    { Icon: SiTypescript, color: "text-blue-400", delay: 4 },
 ];
 
-// Animated orb particles
+// Animated orb particles (reduced for performance)
 const orbParticles = [
-    { color: "from-cyan-500 to-blue-500", delay: 0, duration: 8 },
-    { color: "from-purple-500 to-pink-500", delay: 2, duration: 10 },
-    { color: "from-green-500 to-teal-500", delay: 4, duration: 12 },
-    { color: "from-yellow-500 to-orange-500", delay: 1, duration: 9 },
+    { color: "from-cyan-500 to-blue-500", delay: 0, duration: 10 },
+    { color: "from-purple-500 to-pink-500", delay: 5, duration: 12 },
 ];
 
-export default function BackgroundEffects() {
+// Pre-generate particle data to avoid re-computation
+const generateParticles = (count: number) => {
+    const colors = ["rgb(34, 197, 94)", "rgb(59, 130, 246)", "rgb(168, 85, 247)"];
+    return Array.from({ length: count }, (_, i) => ({
+        id: i,
+        size: Math.random() * 3 + 1,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        color: colors[Math.floor(Math.random() * 3)],
+        duration: 15 + Math.random() * 20,
+        delay: Math.random() * 5,
+        driftX: Math.sin(i) * 300,
+    }));
+};
+
+const BackgroundEffects = memo(function BackgroundEffects() {
+    const performanceMode = usePerformanceMode();
+    
+    // Adjust effects based on performance
+    const particleCount = performanceMode === "high" ? 8 : performanceMode === "medium" ? 4 : 0;
+    const showIcons = performanceMode !== "low";
+    const showOrbs = performanceMode !== "low";
+    
+    const particleData = useMemo(() => generateParticles(particleCount), [particleCount]);
+    // Memoize icon positions
+    const iconPositions = useMemo(() => 
+        floatingIcons.map((_, index) => ({
+            left: `${Math.random() * 80 + 10}%`,
+            duration: 20 + Math.random() * 15,
+            driftX: Math.sin(index) * 200,
+        })), []
+    );
+
     return (
         <>
-            {/* Multi-layer animated background orbs */}
-            <motion.div
+            {/* Multi-layer animated background orbs - CSS animated */}
+            <div
                 className="fixed inset-0 opacity-40 pointer-events-none"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.4 }}
                 style={{ zIndex: 0 }}
             >
                 {orbParticles.map((orb, i) => (
-                    <motion.div
+                    <div
                         key={i}
-                        className={`absolute w-96 h-96 rounded-full blur-3xl mix-blend-screen opacity-30 bg-gradient-to-r ${orb.color}`}
-                        initial={{
-                            top: `${Math.random() * 100}%`,
-                            left: `${Math.random() * 100}%`,
-                            scale: 0,
-                        }}
-                        animate={{
-                            top: `${Math.random() * 100}%`,
-                            left: `${Math.random() * 100}%`,
-                            scale: [1, 1.5, 1],
-                            opacity: [0.3, 0.5, 0.3],
-                        }}
-                        transition={{
-                            duration: orb.duration,
-                            repeat: Infinity,
-                            delay: orb.delay,
-                            ease: "easeInOut",
+                        className={`absolute w-80 h-80 rounded-full blur-xl mix-blend-screen bg-gradient-to-r ${orb.color} animate-orb`}
+                        style={{
+                            left: `${30 + i * 40}%`,
+                            top: `${20 + i * 40}%`,
+                            ["--duration" as string]: `${orb.duration}s`,
+                            ["--delay" as string]: `${orb.delay}s`,
+                            display: showOrbs ? "block" : "none",
                         }}
                     />
                 ))}
-            </motion.div>
+            </div>
 
-            {/* Floating tech icons */}
+            {/* Floating tech icons - CSS animated */}
             <div
                 className="fixed inset-0 pointer-events-none overflow-hidden"
                 style={{ zIndex: 1 }}
             >
                 {floatingIcons.map((item, index) => (
-                    <motion.div
+                    <div
                         key={index}
-                        className="absolute hidden lg:block"
-                        initial={{
-                            x:
-                                Math.random() *
-                                (typeof window !== "undefined"
-                                    ? window.innerWidth
-                                    : 1000),
-                            y: -100,
-                            opacity: 0,
-                            scale: 0,
-                        }}
-                        animate={{
-                            y: [
-                                0,
-                                typeof window !== "undefined"
-                                    ? window.innerHeight * 1.5
-                                    : 1500,
-                            ],
-                            x:
-                                Math.sin(index) * 200 +
-                                (typeof window !== "undefined"
-                                    ? window.innerWidth / 2
-                                    : 500),
-                            opacity: [0, 0.5, 0],
-                            scale: [0, 1, 0],
-                            rotate: [0, 360],
-                        }}
-                        transition={{
-                            duration: 20 + Math.random() * 15,
-                            repeat: Infinity,
-                            delay: item.delay,
-                            ease: "linear",
+                        className="absolute hidden lg:block animate-icon-float"
+                        style={{
+                            left: iconPositions[index].left,
+                            ["--duration" as string]: `${iconPositions[index].duration}s`,
+                            ["--delay" as string]: `${item.delay}s`,
+                            ["--drift-x" as string]: `${iconPositions[index].driftX}px`,
+                            display: showIcons ? "block" : "none",
                         }}
                     >
-                        <motion.div
-                            animate={{
-                                scale: [1, 1.3, 1],
-                                filter: [
-                                    "drop-shadow(0 0 0px currentColor)",
-                                    "drop-shadow(0 0 20px currentColor)",
-                                    "drop-shadow(0 0 0px currentColor)",
-                                ],
-                            }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                            }}
-                        >
+                        <div className="animate-icon-pulse">
                             <item.Icon className={`size-10 ${item.color}`} />
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 ))}
             </div>
 
-            {/* Particle system */}
+            {/* Particle system - CSS animated */}
             <div
                 className="fixed inset-0 overflow-hidden pointer-events-none"
                 style={{ zIndex: 1 }}
             >
-                {Array.from({ length: 50 }).map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute rounded-full"
-                        initial={{
-                            x:
-                                Math.random() *
-                                (typeof window !== "undefined"
-                                    ? window.innerWidth
-                                    : 1000),
-                            y:
-                                Math.random() *
-                                (typeof window !== "undefined"
-                                    ? window.innerHeight
-                                    : 800),
-                            opacity: 0,
-                            width: Math.random() * 3 + 1,
-                            height: Math.random() * 3 + 1,
-                            backgroundColor: [
-                                "rgb(34, 197, 94)",
-                                "rgb(59, 130, 246)",
-                                "rgb(168, 85, 247)",
-                            ][Math.floor(Math.random() * 3)],
-                        }}
-                        animate={{
-                            y: [0, -1500],
-                            x: [0, Math.sin(i) * 300, Math.cos(i) * 200],
-                            opacity: [0, 0.8, 0],
-                        }}
-                        transition={{
-                            duration: 15 + Math.random() * 20,
-                            repeat: Infinity,
-                            delay: Math.random() * 5,
-                            ease: "easeOut",
+                {particleData.map((particle) => (
+                    <div
+                        key={particle.id}
+                        className="absolute rounded-full animate-particle"
+                        style={{
+                            left: particle.left,
+                            top: particle.top,
+                            width: particle.size,
+                            height: particle.size,
+                            backgroundColor: particle.color,
+                            ["--duration" as string]: `${particle.duration}s`,
+                            ["--delay" as string]: `${particle.delay}s`,
+                            ["--drift-x" as string]: `${particle.driftX}px`,
+                            display: particleCount > 0 ? "block" : "none",
                         }}
                     />
                 ))}
             </div>
         </>
     );
-}
+});
+
+export default BackgroundEffects;

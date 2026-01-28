@@ -86,6 +86,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 200, x: -100 }}
                     className="absolute -left-32 top-16 hidden lg:block w-80"
                     drag
+                    style={{ willChange: "transform" }}
                 >
                     <div className="bg-neutral-900 border border-white/10 rounded-3xl p-6 shadow-2xl">
                         <div className="flex items-center gap-3 mb-4">
@@ -126,6 +127,7 @@ export default function Hero() {
                     ref={rightDesignScope}
                     className="absolute -right-64 -top-16 hidden lg:block w-80"
                     drag
+                    style={{ willChange: "transform" }}
                 >
                     <div className="bg-neutral-900 border border-white/10 rounded-3xl p-6 shadow-2xl">
                         <div className="flex items-center gap-3 mb-4">

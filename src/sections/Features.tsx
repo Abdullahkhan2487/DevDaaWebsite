@@ -63,17 +63,7 @@ export default function Services() {
                                 className="md:col-span-2 lg:col-span-1 group"
                             >
                                 <div className="aspect-video flex items-center justify-center relative overflow-hidden">
-                                    <motion.div
-                                        animate={{
-                                            rotate: [0, 360],
-                                        }}
-                                        transition={{
-                                            duration: 20,
-                                            repeat: Infinity,
-                                            ease: "linear",
-                                        }}
-                                        className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-purple-500/20 rounded-full blur-2xl"
-                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-purple-500/20 rounded-full blur-lg animate-rotate" />
                                     <Brain
                                         className="text-teal-500 group-hover:scale-110 transition-transform duration-500 z-10"
                                         size={80}
@@ -103,39 +93,20 @@ export default function Services() {
                                 className="md:col-span-2 lg:col-span-1 group transition duration-500"
                             >
                                 <div className="aspect-video flex items-center justify-center relative">
-                                    <motion.div
-                                        className="absolute inset-0 flex items-center justify-center"
-                                        animate={{
-                                            scale: [1, 1.05, 1],
-                                        }}
-                                        transition={{
-                                            duration: 3,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                        }}
-                                    >
+                                    <div className="absolute inset-0 flex items-center justify-center animate-scale-pulse">
                                         <Code2
                                             className="text-teal-500/30"
                                             size={120}
                                             strokeWidth={1}
                                         />
-                                    </motion.div>
-                                    <motion.div
-                                        animate={{
-                                            y: [0, -10, 0],
-                                        }}
-                                        transition={{
-                                            duration: 2,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                        }}
-                                    >
+                                    </div>
+                                    <div className="animate-bounce-slow">
                                         <Code2
                                             className="text-teal-500 group-hover:text-purple-400 transition-colors duration-500"
                                             size={60}
                                             strokeWidth={1.5}
                                         />
-                                    </motion.div>
+                                    </div>
                                     <TrendingUp
                                         className="absolute top-6 right-6 text-green-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                                         size={20}
@@ -156,58 +127,27 @@ export default function Services() {
                                 className="group md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto"
                             >
                                 <div className="aspect-video flex justify-center items-center relative">
-                                    <motion.div
-                                        animate={{
-                                            y: [0, -15, 0],
-                                        }}
-                                        transition={{
-                                            duration: 4,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                        }}
-                                        className="absolute"
-                                    >
+                                    <div className="absolute animate-bounce-slow" style={{ animationDuration: '4s' }}>
                                         <Cloud
                                             className="text-teal-500/40"
                                             size={100}
                                             strokeWidth={1}
                                         />
-                                    </motion.div>
-                                    <motion.div
-                                        animate={{
-                                            scale: [1, 1.1, 1],
-                                            opacity: [0.5, 1, 0.5],
-                                        }}
-                                        transition={{
-                                            duration: 3,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                        }}
-                                    >
+                                    </div>
+                                    <div className="animate-scale-pulse">
                                         <Cloud
                                             className="text-teal-500"
                                             size={60}
                                             strokeWidth={1.5}
                                         />
-                                    </motion.div>
-                                    <motion.div
-                                        className="absolute bottom-8"
-                                        animate={{
-                                            y: [0, -5, 0],
-                                        }}
-                                        transition={{
-                                            duration: 2,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                            delay: 0.5,
-                                        }}
-                                    >
+                                    </div>
+                                    <div className="absolute bottom-8 animate-bounce-slow">
                                         <div className="flex gap-2">
                                             <div className="w-2 h-2 rounded-full bg-green-400 group-hover:bg-teal-500 transition-colors" />
                                             <div className="w-2 h-2 rounded-full bg-blue-400 group-hover:bg-teal-500 transition-colors" />
                                             <div className="w-2 h-2 rounded-full bg-purple-400 group-hover:bg-teal-500 transition-colors" />
                                         </div>
-                                    </motion.div>
+                                    </div>
                                 </div>
                             </FeatureCard>
                         </motion.div>

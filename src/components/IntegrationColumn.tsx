@@ -1,30 +1,22 @@
 "use client";
 
-import React, { Fragment } from "react";
+import React, { Fragment, memo } from "react";
 import { type IntegrationsType } from "@/sections/Integrations";
 import { twMerge } from "tailwind-merge";
-import { motion } from "framer-motion";
 
-const IntegrationColumn = (props: {
+const IntegrationColumn = memo((props: {
     integrations: IntegrationsType;
     className?: string;
     reverse?: boolean;
 }) => {
     const { integrations, className, reverse } = props;
     return (
-        <motion.div
-            initial={{
-                y: reverse ? "-50%" : 0,
-            }}
-            animate={{
-                y: reverse ? 0 : "-50%",
-            }}
-            transition={{
-                duration: 50,
-                repeat: Infinity,
-                ease: "linear",
-            }}
-            className={twMerge("flex flex-col gap-4 pb-4", className)}
+        <div
+            className={twMerge(
+                "flex flex-col gap-4 pb-4",
+                reverse ? "animate-column-down" : "animate-column-up",
+                className
+            )}
         >
             {Array.from({ length: 2 }).map((_, i) => (
                 <Fragment key={i}>
@@ -51,8 +43,8 @@ const IntegrationColumn = (props: {
                     })}
                 </Fragment>
             ))}
-        </motion.div>
+        </div>
     );
-};
+});
 
 export default IntegrationColumn;
