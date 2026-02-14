@@ -215,7 +215,7 @@ export default function AbdullahPage() {
 
                         <motion.h1 custom={2} variants={fadeUp} className="text-6xl md:text-8xl lg:text-9xl font-black mb-4 tracking-tight">
                             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent">
-                                ABDULLAH K
+                                ABDULLAH K.
                             </span>
                         </motion.h1>
 

@@ -106,7 +106,7 @@ const skills = [
 const timeline = [
     {
         year: "2024–Present",
-        role: "CTO & CoFounder",
+        role: "CTO & Co Founder",
         company: "DevDaa",
         achievements: [
             "Defined technical vision and architecture for all products",
@@ -215,12 +215,12 @@ export default function HamzaPage() {
                         </motion.div>
 
                         <motion.div custom={1} variants={fadeUp} className="mb-4">
-                            <Tag className="border-purple-400 text-purple-400">CoFounder & CTO</Tag>
+                            <Tag className="border-purple-400 text-purple-400">Co Founder & CTO</Tag>
                         </motion.div>
 
                         <motion.h1 custom={2} variants={fadeUp} className="text-6xl md:text-8xl lg:text-9xl font-black mb-4 tracking-tight">
                             <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-purple-300 bg-clip-text text-transparent">
-                                HAMZA N
+                                HAMZA N.
                             </span>
                         </motion.h1>
 

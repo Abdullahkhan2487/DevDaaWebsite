@@ -106,7 +106,7 @@ const skills = [
 const timeline = [
     {
         year: "2024–Present",
-        role: "COO & CoFounder",
+        role: "COO & Co Founder",
         company: "DevDaa",
         achievements: [
             "Defined business strategy and growth roadmap",
@@ -215,12 +215,12 @@ export default function SaudPage() {
                         </motion.div>
 
                         <motion.div custom={1} variants={fadeUp} className="mb-4">
-                            <Tag className="border-amber-400 text-amber-400">CoFounder & COO</Tag>
+                            <Tag className="border-amber-400 text-amber-400">Co Founder & COO</Tag>
                         </motion.div>
 
                         <motion.h1 custom={2} variants={fadeUp} className="text-6xl md:text-8xl lg:text-9xl font-black mb-4 tracking-tight">
                             <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300 bg-clip-text text-transparent">
-                                SAUD N
+                                SAUD N.
                             </span>
                         </motion.h1>
 
