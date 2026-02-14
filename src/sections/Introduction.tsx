@@ -44,9 +44,10 @@ export default function Introduction() {
                                 <span
                                     key={wordIndex}
                                     className={twMerge(
-                                        "transition duration-500 text-white/15",
+                                        "transition-colors duration-300 text-white/15",
                                         wordIndex < currentWord && "text-white"
                                     )}
+                                    style={{ willChange: "color" }}
                                 >{`${word} `}</span>
                             ))}
                         </span>

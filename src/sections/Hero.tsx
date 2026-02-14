@@ -84,10 +84,11 @@ export default function Hero() {
                 <motion.div
                     ref={leftDesignScope}
                     initial={{ opacity: 0, y: 200, x: -100 }}
-                    className="absolute -left-32 top-16 hidden lg:block w-80"
+                    className="absolute -left-32 top-16 hidden lg:block w-80 z-50 select-none"
                     drag
+                    whileDrag={{ cursor: "grabbing", zIndex: 100 }}
                 >
-                    <div className="bg-neutral-900 border border-white/10 rounded-3xl p-6 shadow-2xl">
+                    <div className="bg-neutral-900 border border-white/10 rounded-3xl p-6 shadow-2xl cursor-grab active:cursor-grabbing">
                         <div className="flex items-center gap-3 mb-4">
                             <div className="bg-teal-500 rounded-full p-2">
                                 <Building2
@@ -116,7 +117,7 @@ export default function Hero() {
                 <motion.div
                     ref={leftPointerScope}
                     initial={{ opacity: 0, y: -150, x: -200 }}
-                    className="absolute top-96 left-56 hidden lg:block"
+                    className="absolute top-96 left-56 hidden lg:block z-50"
                 >
                     <Pointer name="DevDaa team" />
                 </motion.div>
@@ -124,10 +125,11 @@ export default function Hero() {
                 <motion.div
                     initial={{ opacity: 0, y: 100, x: 100 }}
                     ref={rightDesignScope}
-                    className="absolute -right-64 -top-16 hidden lg:block w-80"
+                    className="absolute -right-64 -top-16 hidden lg:block w-80 z-50 select-none"
                     drag
+                    whileDrag={{ cursor: "grabbing", zIndex: 100 }}
                 >
-                    <div className="bg-neutral-900 border border-white/10 rounded-3xl p-6 shadow-2xl">
+                    <div className="bg-neutral-900 border border-white/10 rounded-3xl p-6 shadow-2xl cursor-grab active:cursor-grabbing">
                         <div className="flex items-center gap-3 mb-4">
                             <div className="bg-purple-400 rounded-full p-2">
                                 <Mail className="text-neutral-950" size={24} />
@@ -185,15 +187,15 @@ export default function Hero() {
                 <motion.div
                     ref={rightPointerScope}
                     initial={{ opacity: 0, x: 475, y: 100 }}
-                    className="absolute -top-4 right-80 hidden lg:block"
+                    className="absolute -top-4 right-80 hidden lg:block z-50"
                 >
                     <Pointer color="red" name="DevDaa team" />
                 </motion.div>
 
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium text-center mt-6 ">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium text-center mt-6 select-none">
                     Transforming ideas into intelligent solutions
                 </h1>
-                <p className="text-center text-xl text-white/50 mt-8 max-w-2xl mx-auto">
+                <p className="text-center text-xl text-white/50 mt-8 max-w-2xl mx-auto select-none">
                     DevDaa delivers cutting-edge AI, ML, and software solutions
                     that drive innovation and accelerate your business growth.
                 </p>

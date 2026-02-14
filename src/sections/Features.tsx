@@ -63,17 +63,8 @@ export default function Services() {
                                 className="md:col-span-2 lg:col-span-1 group"
                             >
                                 <div className="aspect-video flex items-center justify-center relative overflow-hidden">
-                                    <motion.div
-                                        animate={{
-                                            rotate: [0, 360],
-                                        }}
-                                        transition={{
-                                            duration: 20,
-                                            repeat: Infinity,
-                                            ease: "linear",
-                                        }}
-                                        className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-purple-500/20 rounded-full blur-2xl"
-                                    />
+                                    {/* Removed heavy rotating blur gradient for better performance */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-purple-500/10 rounded-full" />
                                     <Brain
                                         className="text-teal-500 group-hover:scale-110 transition-transform duration-500 z-10"
                                         size={80}

@@ -14,8 +14,8 @@ export default function Home() {
         <>
             <Navbar />
             <Hero />
-            {/* <LogoTicker /> uncomment this section jb logos add krny hon*/}
-            <CallToAction />
+            {/*   <LogoTicker /> uncomment this section jb logos add krny hon*/}
+            
 
             <Introduction />
             <Features />
