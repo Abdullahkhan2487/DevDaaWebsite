@@ -6,19 +6,24 @@ import {
     Linkedin,
     Mail,
     Github,
+    BarChart3,
+    Handshake,
+    PieChart,
+    Target,
     TrendingUp,
     Users,
-    Rocket,
-    Lightbulb,
-    Target,
-    Sparkles,
     Award,
+    Globe,
+    Briefcase,
+    LineChart,
+    Rocket,
+    Megaphone,
 } from "lucide-react";
 import Button from "@/components/Button";
 import Tag from "@/components/Tag";
 import Link from "next/link";
 import Image from "next/image";
-import abdullahImage from "@/assets/images/abdullah.webp";
+import saudImage from "@/assets/images/saud.webp";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -31,114 +36,114 @@ const fadeUp = {
 
 const achievements = [
     {
-        icon: <Rocket className="size-5" />,
-        title: "Innovation Leader",
-        description: "Architected 20+ cutting-edge AI/ML solutions transforming industries",
-        metric: "98%",
-        metricLabel: "Client Satisfaction",
+        icon: <TrendingUp className="size-5" />,
+        title: "Revenue Growth",
+        description: "Spearheaded business development strategies driving exponential growth",
+        metric: "400%",
+        metricLabel: "Revenue Increase",
     },
     {
-        icon: <TrendingUp className="size-5" />,
-        title: "Business Growth",
-        description: "Drove exponential company growth and market expansion globally",
-        metric: "300%",
-        metricLabel: "Revenue Growth",
+        icon: <Handshake className="size-5" />,
+        title: "Strategic Partnerships",
+        description: "Established key partnerships with Fortune 500 companies worldwide",
+        metric: "25+",
+        metricLabel: "Enterprise Clients",
     },
     {
         icon: <Users className="size-5" />,
-        title: "Visionary Leader",
-        description: "Built, mentored, and scaled high-performance technical teams",
-        metric: "50+",
-        metricLabel: "Engineers Mentored",
+        title: "Operations Leadership",
+        description: "Streamlined operations and built efficient cross-functional teams",
+        metric: "60%",
+        metricLabel: "Efficiency Gain",
     },
     {
-        icon: <Award className="size-5" />,
-        title: "Industry Recognition",
-        description: "Pioneering AI solutions featured in premier tech publications",
-        metric: "15+",
-        metricLabel: "Awards & Publications",
+        icon: <Globe className="size-5" />,
+        title: "Market Expansion",
+        description: "Led successful market expansion into 5+ international markets",
+        metric: "5+",
+        metricLabel: "Markets Entered",
     },
 ];
 
 const projects = [
     {
-        name: "Enterprise AI Assistant",
-        category: "AI/ML",
-        impact: "40% increase in customer support efficiency",
-        tech: ["Python", "TensorFlow", "FastAPI", "React"],
-        icon: <Sparkles className="size-5" />,
+        name: "Enterprise Growth Strategy",
+        category: "Business Dev",
+        impact: "Closed $5M+ in enterprise contracts in first year",
+        skills: ["Sales Strategy", "Client Relations", "Market Analysis", "Negotiation"],
+        icon: <Briefcase className="size-5" />,
     },
     {
-        name: "Predictive Analytics Platform",
-        category: "Data Science",
-        impact: "Reduced operational costs by $2M annually",
-        tech: ["PyTorch", "PostgreSQL", "Docker", "AWS"],
-        icon: <Target className="size-5" />,
+        name: "Operational Excellence Program",
+        category: "Operations",
+        impact: "Reduced operational overhead by 40%",
+        skills: ["Process Optimization", "Team Management", "KPI Tracking", "Agile"],
+        icon: <PieChart className="size-5" />,
     },
     {
-        name: "Blockchain Supply Chain",
-        category: "Web3",
-        impact: "Improved transparency for 500+ suppliers",
-        tech: ["Ethereum", "Solidity", "Next.js", "MongoDB"],
-        icon: <Rocket className="size-5" />,
+        name: "Brand & Marketing Initiative",
+        category: "Marketing",
+        impact: "3x increase in qualified leads through digital channels",
+        skills: ["Digital Marketing", "Brand Strategy", "Content", "SEO"],
+        icon: <Megaphone className="size-5" />,
     },
     {
-        name: "Real-time Analytics Dashboard",
-        category: "Full Stack",
-        impact: "Processing 1M+ events per second",
-        tech: ["React", "Node.js", "Redis", "Kubernetes"],
-        icon: <Lightbulb className="size-5" />,
+        name: "Client Success Framework",
+        category: "Client Success",
+        impact: "95% client retention rate with NPS score of 72",
+        skills: ["Account Management", "CX Design", "Analytics", "Feedback Loops"],
+        icon: <LineChart className="size-5" />,
     },
 ];
 
 const skills = [
-    "Artificial Intelligence", "Machine Learning", "Deep Learning",
-    "Python", "JavaScript/TypeScript", "React/Next.js",
-    "Node.js", "AWS/Azure/GCP", "Docker/Kubernetes",
-    "PostgreSQL/MongoDB", "FastAPI/Flask", "TensorFlow/PyTorch",
+    "Business Strategy", "Operations Management", "Financial Planning",
+    "Client Relations", "Team Leadership", "Market Analysis",
+    "Sales & BD", "Project Management", "Digital Marketing",
+    "Strategic Planning", "Agile/Scrum", "Data-Driven Decisions",
 ];
 
 const timeline = [
     {
         year: "2024–Present",
-        role: "CEO & Founder",
+        role: "COO & CoFounder",
         company: "DevDaa",
         achievements: [
-            "Led digital transformation for Fortune 500 clients",
-            "Architected scalable AI infrastructure serving 10M+ users",
-            "Established DevDaa as a leader in AI innovation",
+            "Defined business strategy and growth roadmap",
+            "Built client acquisition pipeline generating 200+ qualified leads/month",
+            "Established operational processes scaling the company 4x",
         ],
     },
     {
         year: "2022–2024",
-        role: "Lead AI Engineer",
+        role: "Head of Business Development",
         company: "DevDaa",
         achievements: [
-            "Developed proprietary ML models with 95%+ accuracy",
-            "Reduced model training time by 60% through optimization",
-            "Published research on cutting-edge AI techniques",
+            "Closed partnerships with 15+ enterprise clients",
+            "Built and managed the sales and marketing team",
+            "Developed pricing strategy and go-to-market plans",
         ],
     },
     {
         year: "2020–2022",
-        role: "Senior Full Stack Developer",
-        company: "Tech Innovations Inc.",
+        role: "Business Analyst",
+        company: "Strategic Solutions Group",
         achievements: [
-            "Built enterprise applications serving 100K+ users",
-            "Implemented CI/CD pipelines reducing deployment time by 70%",
-            "Mentored junior developers in best practices",
+            "Analyzed market trends and identified growth opportunities",
+            "Managed $3M+ project portfolios end-to-end",
+            "Delivered data-driven insights improving decision-making by 35%",
         ],
     },
 ];
 
 // Optimized orb particles for background
 const orbParticles = [
-    { color: "from-teal-500 to-cyan-500", startPos: { top: "20%", left: "10%" }, endPos: { top: "70%", left: "80%" }, duration: 22 },
-    { color: "from-cyan-500 to-blue-500", startPos: { top: "60%", left: "70%" }, endPos: { top: "20%", left: "20%" }, duration: 28 },
-    { color: "from-blue-500 to-teal-500", startPos: { top: "40%", left: "80%" }, endPos: { top: "80%", left: "30%" }, duration: 25 },
+    { color: "from-amber-500 to-orange-500", startPos: { top: "18%", left: "12%" }, endPos: { top: "72%", left: "78%" }, duration: 23 },
+    { color: "from-orange-500 to-rose-500", startPos: { top: "63%", left: "72%" }, endPos: { top: "23%", left: "18%" }, duration: 27 },
+    { color: "from-rose-500 to-amber-500", startPos: { top: "43%", left: "82%" }, endPos: { top: "83%", left: "28%" }, duration: 24 },
 ];
 
-export default function AbdullahPage() {
+export default function SaudPage() {
     return (
         <main className="bg-neutral-950 text-white min-h-screen relative overflow-hidden">
             {/* Animated Background Orbs */}
@@ -173,7 +178,7 @@ export default function AbdullahPage() {
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-2 text-white/60 hover:text-teal-400 transition-colors bg-neutral-900/80 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
+                        className="flex items-center gap-2 text-white/60 hover:text-amber-400 transition-colors bg-neutral-900/80 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
                     >
                         <ArrowLeft className="size-4" />
                         <span className="text-sm font-medium">Back</span>
@@ -188,11 +193,11 @@ export default function AbdullahPage() {
                         {/* Profile Image */}
                         <motion.div custom={0} variants={fadeUp} className="mb-8 flex justify-center">
                             <div className="relative">
-                                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 p-[3px]">
+                                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 p-[3px]">
                                     <div className="w-full h-full rounded-full overflow-hidden">
                                         <Image
-                                            src={abdullahImage}
-                                            alt="Abdullah Khan"
+                                            src={saudImage}
+                                            alt="Saud Naseer"
                                             className="w-full h-full object-cover scale-110"
                                             priority
                                         />
@@ -202,41 +207,41 @@ export default function AbdullahPage() {
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
                                     transition={{ delay: 0.5, type: "spring" }}
-                                    className="absolute -bottom-1 -right-1 bg-teal-400 text-neutral-950 rounded-full px-3 py-1 text-xs font-bold"
+                                    className="absolute -bottom-1 -right-1 bg-amber-400 text-neutral-950 rounded-full px-3 py-1 text-xs font-bold"
                                 >
-                                    CEO
+                                    COO
                                 </motion.div>
                             </div>
                         </motion.div>
 
                         <motion.div custom={1} variants={fadeUp} className="mb-4">
-                            <Tag>Founder & CEO</Tag>
+                            <Tag className="border-amber-400 text-amber-400">CoFounder & COO</Tag>
                         </motion.div>
 
                         <motion.h1 custom={2} variants={fadeUp} className="text-6xl md:text-8xl lg:text-9xl font-black mb-4 tracking-tight">
-                            <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent">
-                                ABDULLAH K
+                            <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300 bg-clip-text text-transparent">
+                                SAUD N
                             </span>
                         </motion.h1>
 
                         <motion.p custom={3} variants={fadeUp} className="text-xl md:text-3xl text-white/50 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                            Building next-generation AI solutions
+                            Driving operational excellence
                             <br />
-                            <span className="text-teal-400">that reshape industries</span>
+                            <span className="text-amber-400">and business growth at scale</span>
                         </motion.p>
 
                         <motion.div custom={4} variants={fadeUp} className="flex flex-wrap gap-3 justify-center">
-                            <a href="mailto:abdullah.khan@devdaa.com">
-                                <Button variant="primary" size="sm" className="inline-flex items-center gap-2 font-bold">
+                            <a href="mailto:saud.naseer@devdaa.com">
+                                <Button variant="primary" size="sm" className="inline-flex items-center gap-2 font-bold bg-amber-400 border-amber-400 text-neutral-950">
                                     <Mail className="size-4" /> Get in Touch
                                 </Button>
                             </a>
-                            <a href="https://www.linkedin.com/in/mabdullahknuces/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.linkedin.com/in/muhammad-saud-naseer-5b3110398/" target="_blank" rel="noopener noreferrer">
                                 <Button variant="secondary" size="sm" className="inline-flex items-center gap-2">
                                     <Linkedin className="size-4" /> LinkedIn
                                 </Button>
                             </a>
-                            <a href="https://github.com/Abdullahkhan2487" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/saud-naseer" target="_blank" rel="noopener noreferrer">
                                 <Button variant="secondary" size="sm" className="inline-flex items-center gap-2">
                                     <Github className="size-4" /> GitHub
                                 </Button>
@@ -250,9 +255,9 @@ export default function AbdullahPage() {
             <section className="py-20">
                 <div className="container max-w-5xl mx-auto">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
-                        <Tag>Achievements</Tag>
+                        <Tag className="border-amber-400 text-amber-400">Achievements</Tag>
                         <h2 className="text-3xl md:text-5xl font-bold mt-6">
-                            Track Record of <span className="text-teal-400">Excellence</span>
+                            Driving <span className="text-amber-400">Results</span>
                         </h2>
                     </motion.div>
 
@@ -264,15 +269,15 @@ export default function AbdullahPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-teal-500/20 rounded-3xl p-8 hover:border-teal-500/50 hover:shadow-lg hover:shadow-teal-500/10 transition-all duration-500"
+                                className="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-amber-500/20 rounded-3xl p-8 hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-500"
                             >
                                 <div className="flex items-start justify-between mb-6">
                                     <div className="flex items-center gap-3">
-                                        <div className="bg-teal-500/10 text-teal-400 p-2 rounded-lg">{item.icon}</div>
+                                        <div className="bg-amber-500/10 text-amber-400 p-2 rounded-lg">{item.icon}</div>
                                         <h3 className="font-bold text-lg">{item.title}</h3>
                                     </div>
                                     <div className="text-right">
-                                        <div className="text-2xl font-bold text-teal-400">{item.metric}</div>
+                                        <div className="text-2xl font-bold text-amber-400">{item.metric}</div>
                                         <div className="text-xs text-white/40">{item.metricLabel}</div>
                                     </div>
                                 </div>
@@ -287,9 +292,9 @@ export default function AbdullahPage() {
             <section className="py-20">
                 <div className="container max-w-4xl mx-auto">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
-                        <Tag>Experience</Tag>
+                        <Tag className="border-amber-400 text-amber-400">Experience</Tag>
                         <h2 className="text-3xl md:text-5xl font-bold mt-6">
-                            Career <span className="text-teal-400">Journey</span>
+                            Career <span className="text-amber-400">Journey</span>
                         </h2>
                     </motion.div>
 
@@ -301,16 +306,16 @@ export default function AbdullahPage() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.15 }}
-                                className="relative pl-8 border-l-2 border-white/10 hover:border-teal-500/50 transition-colors duration-300"
+                                className="relative pl-8 border-l-2 border-white/10 hover:border-amber-500/50 transition-colors duration-300"
                             >
-                                <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-teal-400 border-4 border-neutral-950" />
-                                <div className="text-sm text-teal-400 font-mono mb-1">{entry.year}</div>
+                                <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-400 border-4 border-neutral-950" />
+                                <div className="text-sm text-amber-400 font-mono mb-1">{entry.year}</div>
                                 <h3 className="text-xl font-bold">{entry.role}</h3>
                                 <p className="text-white/50 text-sm mb-3">{entry.company}</p>
                                 <ul className="space-y-1">
                                     {entry.achievements.map((a, j) => (
                                         <li key={j} className="text-white/60 text-sm flex items-start gap-2">
-                                            <span className="text-teal-400 mt-1.5 shrink-0">•</span>{a}
+                                            <span className="text-amber-400 mt-1.5 shrink-0">•</span>{a}
                                         </li>
                                     ))}
                                 </ul>
@@ -324,9 +329,9 @@ export default function AbdullahPage() {
             <section className="py-20">
                 <div className="container max-w-5xl mx-auto">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
-                        <Tag>Projects</Tag>
+                        <Tag className="border-amber-400 text-amber-400">Initiatives</Tag>
                         <h2 className="text-3xl md:text-5xl font-bold mt-6">
-                            Featured <span className="text-teal-400">Work</span>
+                            Key <span className="text-amber-400">Initiatives</span>
                         </h2>
                     </motion.div>
 
@@ -338,16 +343,16 @@ export default function AbdullahPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="bg-neutral-900 border border-white/10 rounded-2xl p-6 hover:border-teal-500/30 transition-colors duration-300 group"
+                                className="bg-neutral-900 border border-white/10 rounded-2xl p-6 hover:border-amber-500/30 transition-colors duration-300 group"
                             >
                                 <div className="flex items-center gap-3 mb-3">
-                                    <div className="text-teal-400">{project.icon}</div>
-                                    <span className="text-xs text-teal-400 font-mono bg-teal-500/10 px-2 py-0.5 rounded-full">{project.category}</span>
+                                    <div className="text-amber-400">{project.icon}</div>
+                                    <span className="text-xs text-amber-400 font-mono bg-amber-500/10 px-2 py-0.5 rounded-full">{project.category}</span>
                                 </div>
-                                <h3 className="text-lg font-bold mb-2 group-hover:text-teal-400 transition-colors">{project.name}</h3>
+                                <h3 className="text-lg font-bold mb-2 group-hover:text-amber-400 transition-colors">{project.name}</h3>
                                 <p className="text-white/50 text-sm mb-4">{project.impact}</p>
                                 <div className="flex flex-wrap gap-1.5">
-                                    {project.tech.map((t) => (
+                                    {project.skills.map((t) => (
                                         <span key={t} className="text-xs bg-white/5 text-white/50 px-2 py-1 rounded-md">{t}</span>
                                     ))}
                                 </div>
@@ -361,9 +366,9 @@ export default function AbdullahPage() {
             <section className="py-20">
                 <div className="container max-w-4xl mx-auto">
                     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
-                        <Tag>Skills</Tag>
+                        <Tag className="border-amber-400 text-amber-400">Skills</Tag>
                         <h2 className="text-3xl md:text-5xl font-bold mt-6">
-                            Technical <span className="text-teal-400">Expertise</span>
+                            Core <span className="text-amber-400">Competencies</span>
                         </h2>
                     </motion.div>
 
@@ -375,7 +380,7 @@ export default function AbdullahPage() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.05 }}
-                                className="bg-neutral-900 border border-white/10 px-4 py-2 rounded-full text-sm hover:border-teal-400/40 hover:text-teal-400 transition-colors duration-300"
+                                className="bg-neutral-900 border border-white/10 px-4 py-2 rounded-full text-sm hover:border-amber-400/40 hover:text-amber-400 transition-colors duration-300"
                             >
                                 {skill}
                             </motion.span>
@@ -389,12 +394,12 @@ export default function AbdullahPage() {
                 <div className="container max-w-3xl mx-auto text-center">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Let&apos;s Build Something <span className="text-teal-400">Extraordinary</span>
+                            Let&apos;s Grow <span className="text-amber-400">Together</span>
                         </h2>
-                        <p className="text-white/50 mb-8">Ready to transform your ideas into intelligent solutions? Get in touch.</p>
+                        <p className="text-white/50 mb-8">Ready to take your business to the next level? Let&apos;s talk strategy.</p>
                         <div className="flex justify-center gap-4">
-                            <a href="mailto:abdullah.khan@devdaa.com">
-                                <Button variant="primary" className="font-bold">Contact Me</Button>
+                            <a href="mailto:saud.naseer@devdaa.com">
+                                <Button variant="primary" className="font-bold bg-amber-400 border-amber-400 text-neutral-950">Contact Me</Button>
                             </a>
                             <Link href="/">
                                 <Button variant="secondary">Back to DevDaa</Button>

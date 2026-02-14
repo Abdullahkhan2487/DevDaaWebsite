@@ -21,6 +21,10 @@
 /build
 /dist
 
+# skills
+/.github/skills/
+
+
 # misc
 .DS_Store
 *.pem
