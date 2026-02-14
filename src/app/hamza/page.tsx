@@ -24,6 +24,7 @@ import Tag from "@/components/Tag";
 import Link from "next/link";
 import Image from "next/image";
 import hamzaImage from "@/assets/images/Hamza.webp";
+import Footer from "@/sections/Footer";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -232,7 +233,7 @@ export default function HamzaPage() {
 
                         <motion.div custom={4} variants={fadeUp} className="flex flex-wrap gap-3 justify-center">
                             <a href="mailto:hamza.naveed@devdaa.com">
-                                <Button variant="primary" size="sm" className="inline-flex items-center gap-2 font-bold bg-purple-400 border-purple-400 text-neutral-950">
+                                <Button variant="primary" size="sm" className="inline-flex items-center gap-2 font-bold !bg-purple-400 !border-purple-400 !text-neutral-950 hover:!bg-purple-500">
                                     <Mail className="size-4" /> Get in Touch
                                 </Button>
                             </a>
@@ -399,7 +400,7 @@ export default function HamzaPage() {
                         <p className="text-white/50 mb-8">Ready to build robust, scalable systems? Let&apos;s connect.</p>
                         <div className="flex justify-center gap-4">
                             <a href="mailto:hamza.naveed@devdaa.com">
-                                <Button variant="primary" className="font-bold bg-purple-400 border-purple-400 text-neutral-950">Contact Me</Button>
+                                <Button variant="primary" className="font-bold !bg-purple-400 !border-purple-400 !text-neutral-950">Contact Me</Button>
                             </a>
                             <Link href="/">
                                 <Button variant="secondary">Back to DevDaa</Button>
@@ -408,6 +409,9 @@ export default function HamzaPage() {
                     </motion.div>
                 </div>
             </section>
+
+            {/* Footer */}
+            <Footer />
         </main>
     );
 }

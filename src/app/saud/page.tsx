@@ -24,6 +24,7 @@ import Tag from "@/components/Tag";
 import Link from "next/link";
 import Image from "next/image";
 import saudImage from "@/assets/images/saud.webp";
+import Footer from "@/sections/Footer";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -408,6 +409,9 @@ export default function SaudPage() {
                     </motion.div>
                 </div>
             </section>
+
+            {/* Footer */}
+            <Footer />
         </main>
     );
 }

@@ -1,0 +1,56 @@
+# Disable directory listing
+Options -Indexes
+
+# Protect sensitive files
+<Files "config.php">
+    Require all denied
+</Files>
+
+<FilesMatch "\.env|\.htaccess">
+    Require all denied
+</FilesMatch>
+
+# Allow only POST requests to send-email.php
+<Files "send-email.php">
+    <LimitExcept POST OPTIONS>
+        Require all denied
+    </LimitExcept>
+</Files>
+
+# Deny access to test-form.html in production (optional)
+# <Files "test-form.html">
+#     Require all denied
+# </Files>
+
+# Force HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Enable error logging
+php_flag display_errors Off
+php_flag log_errors On
+php_value log_errors_max_len 1024
+
+# Security headers
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Force HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

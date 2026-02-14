@@ -19,6 +19,7 @@ import Tag from "@/components/Tag";
 import Link from "next/link";
 import Image from "next/image";
 import abdullahImage from "@/assets/images/abdullah.webp";
+import Footer from "@/sections/Footer";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -394,7 +395,7 @@ export default function AbdullahPage() {
                         <p className="text-white/50 mb-8">Ready to transform your ideas into intelligent solutions? Get in touch.</p>
                         <div className="flex justify-center gap-4">
                             <a href="mailto:abdullah.khan@devdaa.com">
-                                <Button variant="primary" className="font-bold">Contact Me</Button>
+                                <Button variant="primary" className="font-bold bg-teal-400 border-teal-400 text-neutral-950">Contact Me</Button>
                             </a>
                             <Link href="/">
                                 <Button variant="secondary">Back to DevDaa</Button>
@@ -403,6 +404,9 @@ export default function AbdullahPage() {
                     </motion.div>
                 </div>
             </section>
+
+            {/* Footer */}
+            <Footer />
         </main>
     );
 }

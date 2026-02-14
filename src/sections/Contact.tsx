@@ -11,11 +11,49 @@ export default function Contact() {
         company: "",
         message: "",
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{
+        type: "success" | "error" | null;
+        message: string;
+    }>({ type: null, message: "" });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission here
-        console.log("Form submitted:", formData);
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: "" });
+
+        try {
+            // Use PHP backend for Hostinger hosting
+            const response = await fetch("https://devdaa.com/api/send-email.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setSubmitStatus({
+                    type: "success",
+                    message: "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+                });
+                setFormData({ name: "", email: "", company: "", message: "" });
+            } else {
+                setSubmitStatus({
+                    type: "error",
+                    message: data.error || "Failed to send message. Please try again.",
+                });
+            }
+        } catch (error) {
+            setSubmitStatus({
+                type: "error",
+                message: "An error occurred. Please try again later.",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (
@@ -91,10 +129,28 @@ export default function Contact() {
                         />
                     </div>
                     <div className="flex justify-center">
-                        <Button type="submit" variant="primary" size="lg">
-                            Send Message
+                        <Button 
+                            type="submit" 
+                            variant="primary" 
+                            size="lg"
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? "Sending..." : "Send Message"}
                         </Button>
                     </div>
+
+                    {/* Status Messages */}
+                    {submitStatus.type && (
+                        <div
+                            className={`mt-4 p-4 rounded-2xl text-center ${
+                                submitStatus.type === "success"
+                                    ? "bg-teal-500/10 border border-teal-500/30 text-teal-400"
+                                    : "bg-red-500/10 border border-red-500/30 text-red-400"
+                            }`}
+                        >
+                            {submitStatus.message}
+                        </div>
+                    )}
                 </form>
             </div>
         </section>

@@ -48,6 +48,10 @@ pnpm-debug.log*
 .env.test.local
 .env.production.local
 
+# logs (security - never commit)
+/logs
+*.log
+
 # vercel
 .vercel
 
