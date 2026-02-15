@@ -41,15 +41,17 @@ export default function Contact() {
                 });
                 setFormData({ name: "", email: "", company: "", message: "" });
             } else {
+                console.error("Server error:", response.status, data);
                 setSubmitStatus({
                     type: "error",
-                    message: data.error || "Failed to send message. Please try again.",
+                    message: data.error || `Server error (${response.status}). Please try again.`,
                 });
             }
         } catch (error) {
+            console.error("Contact form error:", error);
             setSubmitStatus({
                 type: "error",
-                message: "An error occurred. Please try again later.",
+                message: "An error occurred. Please check the console for details.",
             });
         } finally {
             setIsSubmitting(false);

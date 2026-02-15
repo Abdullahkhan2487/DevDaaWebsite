@@ -13,28 +13,23 @@ require_once __DIR__ . '/config.php';
 $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
 $ip = explode(',', $ip)[0]; // If multiple IPs, take the first
 
-// CORS Headers - Only allow specific origins (SECURE)
+// CORS Headers - Set these FIRST before any response
+header('Content-Type: application/json');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, X-CSRF-Token');
+header('Access-Control-Max-Age: 86400');
+
+// Check origin and set CORS header
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 $allowed = ALLOWED_ORIGINS;
 
-if (in_array($origin, $allowed)) {
+if (!empty($origin) && in_array($origin, $allowed)) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
 } else {
-    // For same-origin requests (no HTTP_ORIGIN header)
-    if (empty($origin)) {
-        // Allow if no origin header (same-origin request)
-        header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_HOST']);
-    } else {
-        // Reject cross-origin requests from untrusted domains
-        http_response_code(403);
-        logSecurityEvent($ip, "Rejected", "CORS origin not allowed: $origin");
-        exit();
-    }
+    // Allow same-origin or direct requests (no origin header)
+    header('Access-Control-Allow-Origin: https://devdaa.com');
 }
-
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, X-CSRF-Token');
-header('Content-Type: application/json');
 
 // Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
